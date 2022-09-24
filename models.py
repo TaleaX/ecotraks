@@ -9,4 +9,4 @@ class Flight(Base):
     airline = Column(String, index=True)
     price = Column(String)
     departure = Column(String)
-    duration = Column(Numeric)
+    duration = Column(String)

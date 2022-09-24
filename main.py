@@ -32,10 +32,11 @@ def home(request: Request, db: Session=Depends(get_db)):
     airline = db.query(Flight.airline).all()
     # airline = db.query(Flight.airline).all()
     price = db.query(Flight.price).all()
-    # departure = db.query(Flight.departure).all()
-    # duration = db.query(Flight.duration).all()
+    departure = db.query(Flight.departure).all()
+    # print(departure)
+    duration = db.query(Flight.duration).all()
     return templates.TemplateResponse("home.html", {
-        "request": request, "airlines": airline, "prices": price
+        "request": request, "airlines": airline, "prices": price, "departures": departure, "durations": duration
     })
 
 # , "departures": departure, "durations": duration

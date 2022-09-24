@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="ui input">
+  <input type="text" placeholder="Airline">
+</div>
+<div class="ui input">
+    <input type="text" placeholder="From">
+</div>
+<div class="ui input">
+    <input type="text" placeholder="To">
+</div>
+
+<div class="ui checkbox">
+    <input type="checkbox" name="example">
+    <label>Toggle Box One</label>
+</div>
+
+<div class="ui checkbox">
+    <input type="checkbox" name="example">
+    <label>Toggle Box Two</label>
+</div>
+
+<button class="ui button primary">Filter</button>
+
+<table class="ui celled table">
+    <thead>
+      <tr>
+          <th>Airline</th>
+      <!-- <th>Price</th>
+      <th>Time</th> -->
+    </tr></thead>
+    <tbody>
+      {% for airline in airlines %}  
+      <tr>
+        <td>{{ airline }}</td>
+      </tr>
+      {% endfor %}
+      <!-- <tr>
+        <td data-label="Name">AAPL</td>
+        <td data-label="Age">26</td>
+        <td data-label="Job">4</td>
+      </tr>
+      <tr>
+        <td data-label="Name">TSLA</td>
+        <td data-label="Age">24</td>
+        <td data-label="Job">1</td>
+      </tr> -->
+    </tbody>
+  </table>
+{% endblock %}

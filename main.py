@@ -30,7 +30,6 @@ def home(request: Request, db: Session=Depends(get_db)):
     displays the stock screener dashboard
     """
     airline = db.query(Flight.airline).all()
-    print(airline)
     return templates.TemplateResponse("home.html", {
         "request": request, "airlines": airline
     })

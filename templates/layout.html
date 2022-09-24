@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ecotraks</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    </head>
-    <body>
-        <div>
-            
-        </div>
-        <div class="ui container">
-            <h2>Find your eco-friendly track :)</h2>
-
-            {% block content %}
-            {% endblock %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Gender Predictor</title>
+      </head>
+    <body class="bg-teal-200 font-sans">
+        <div class="flex justify-center pt-8">
+            <div>
+                <h1 class="text-3xl font-bold mb-10 text-center">Find Your Eco-Friendly Track :)</h1>
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
 
     </body>

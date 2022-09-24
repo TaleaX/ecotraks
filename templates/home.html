@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div class="flex justify-center items-end text-gray-800">
+  <h1 class="text-3xl font-bold mb-10 text-center mr-4">Find Your Eco-Friendly Track</h1>
+  <img  style="width: 120px" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
+</div>
 <form method="post">
   <div class="grid grid-cols-5 gap-4">
     <input type="text" placeholder="Airline" class="form-input px-4 py-3 rounded-lg border-2 border-blue-400">
@@ -15,13 +19,25 @@
         <label>Toggle Box Two</label>
     </div>
   </div>
-  <button type="submit" class="text-lg mt-5 px-4 py-1 rounded-lg bg-blue-400">Filter</button>
+  <button type="submit" class="shadow-sm shadow-gray-500 text-lg mt-5 px-4 py-1 rounded-lg bg-blue-400">Filter</button>
 </form>
 
 
-<div class="grid grid-cols-1 border-2 border-gray-500 text-lg mt-10 bg-gray-100">
+<div class="grid grid-cols-1 text-lg mt-10 gap-4">
   {% for airline in airlines %}
-  <div class="border-2 border-gray-500">{{ airline }}</div>
+  <div class="grid grid-cols-8 shadow-md shadow-gray-500 bg-gray-100 rounded-3xl">
+    <div class="col-span-4 flex justify-between p-6">
+      <div>{{ airline }} Other Infos yay</div>
+      <button type="submit" class="shadow-sm shadow-gray-500 text-lg ml-6 px-4 py-1 rounded-lg bg-blue-400">Select</button>
+    </div>
+    <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-6">
+      <h1 class="text-red-500">155kg C02 Verbrauch</h1>
+    </div>
+    <div class="col-span-2 flex justify-between border-l-2 border-gray-400 p-6">
+      <div class="text-green-600">ALTERNATIVE </div>
+      <button type="submit" class="shadow-sm shadow-gray-500 text-lg ml-6 px-4 py-1 rounded-lg bg-blue-400">Select</button>
+    </div>
+  </div>
   {% endfor %}
 </div>
 

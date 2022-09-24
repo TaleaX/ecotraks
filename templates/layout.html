@@ -4,12 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>Gender Predictor</title>
+        <title>EcoTraks</title>
+        <style>
+            body {
+                background-color: #f6eae6;
+            }
+        </style>
       </head>
-    <body class="bg-teal-200 font-sans">
-        <div class="flex justify-center pt-8">
+    <body class="font-sans pt-8 pb-8">
+        <div class="flex justify-center">
             <div>
-                <h1 class="text-3xl font-bold mb-10 text-center">Find Your Eco-Friendly Track :)</h1>
                 {% block content %}
                 {% endblock %}
             </div>

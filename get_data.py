@@ -21,5 +21,5 @@ for flight in data['legs']:
     fare_flight = get_fare_flight(flight['id'])
     if (not fare_flight):
         continue
-    cursor.execute("insert into flights (airline, price, departure, duration) values (?, ?, ?)", (flight['airlineCodes'][0], fare_flight['price']['totalAmount'],flight['departureDateTime'], flight['duration']))
+    cursor.execute("insert into flights (airline, price, departure, duration) values (?, ?, ?, ?)", (flight['airlineCodes'][0], fare_flight['price']['totalAmount'],flight['departureDateTime'], flight['duration']))
     connection.commit()

@@ -7,4 +7,6 @@ class Flight(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     airline = Column(String, index=True)
-    price = Column(Numeric(10, 2))
+    price = Column(String)
+    departure = Column(String)
+    duration = Column(Numeric)

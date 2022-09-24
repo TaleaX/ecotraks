@@ -14,8 +14,8 @@ models.Base.metadata.create_all(bind=engine)
 
 templates = Jinja2Templates(directory="templates")
 
-class StockRequest(BaseModel):
-    symbol: str
+# class StockRequest(BaseModel):
+#     symbol: str
 
 def get_db():
     try:
@@ -30,21 +30,26 @@ def home(request: Request, db: Session=Depends(get_db)):
     displays the stock screener dashboard
     """
     airline = db.query(Flight.airline).all()
+    # airline = db.query(Flight.airline).all()
+    price = db.query(Flight.price).all()
+    # departure = db.query(Flight.departure).all()
+    # duration = db.query(Flight.duration).all()
     return templates.TemplateResponse("home.html", {
-        "request": request, "airlines": airline
+        "request": request, "airlines": airline, "prices": price
     })
+
+# , "departures": departure, "durations": duration
 
 def fetch_flight_data(id: int):
     db = SessionLocal()
     stock = db.query(Flight).filter(Flight.id == id).first()
 
 @app.post("/flight")
-async def create_stock(stock_request: StockRequest, background_tasks: BackgroundTasks,db: Session=Depends(get_db)):
+async def create_stock(background_tasks: BackgroundTasks,db: Session=Depends(get_db)):
     """
     creates a stock and stores it in the database
     """
     flight = Flight()
-    flight.symbol = stock_request.symbol
 
     # req = requests.get('https://api.flightapi.io/onewaytrip/632ddcfccaa6ed253fcf9e6e/BER/CDG/2022-10-03/2/0/1/Economy/EUR')
 

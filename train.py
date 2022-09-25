@@ -67,4 +67,4 @@ def iLikeTrain (departure, arrival, date, headers):
     train_list = train_id(loc_id, arrival, date, headers)
     details_train(train_list, headers, departure, arrival)
 
-iLikeTrain("Stuttgart Hbf", "München Hbf", "2022-09-25T06:00:00", headers)
+# iLikeTrain("Stuttgart Hbf", "München Hbf", "2022-09-25T06:00:00", headers)

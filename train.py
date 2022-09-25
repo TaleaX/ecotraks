@@ -49,8 +49,8 @@ def get_arrivalTime(arrival, data):
         if arrival in elem['stopName']:
             return (elem['arrTime'])
 
-loc_id = location_id("Berlin Hbf", headers)
-train_list = train_id(loc_id, "München Hbf", "2022-09-25T06:00:00", headers)
-details_train(train_list, headers, "Berlin Hbf", "München Hbf")
-
-
+#Call this function for and you get informations about trains
+def iLikeTrain (departure, arrival, date, headers):
+    loc_id = location_id(departure, headers)
+    train_list = train_id(loc_id, arrival, date, headers)
+    details_train(train_list, headers, departure, arrival)

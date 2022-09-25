@@ -35,8 +35,9 @@ def home(request: Request, db: Session=Depends(get_db)):
     price = [p[0] for p in db.query(Flight.price).all()]
     departure = [d[0].replace(":00.000+02:00", "").split("T")[1] for d in db.query(Flight.departure).all()]
     duration = [d[0] for d in db.query(Flight.duration).all()]
+    emissions = [em[0] for em in db.query(Flight.emission).all()]
     return templates.TemplateResponse("home.html", {
-        "request": request, "airlines": airlines, "prices": price, "departures": departure, "durations": duration
+        "request": request, "airlines": airlines, "prices": price, "departures": departure, "durations": duration, "emissions": emissions
     })
 
 # , "departures": departure, "durations": duration

@@ -10,3 +10,4 @@ class Flight(Base):
     price = Column(String)
     departure = Column(String)
     duration = Column(String)
+    emission = Column(String)

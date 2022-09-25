@@ -1,6 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(function() {
+  $("button").on({
+    mouseover: function() {
+      $(this).css({
+        left: (Math.random() * 200) + "px",
+        top: (Math.random() * 200) + "px",
+      });
+    }
+  });
+});
+</script>
+<style>
+  .buttonion {
+    position: relative;
+  }
+</style>
 <div class="flex justify-center items-end text-gray-800">
   <h1 class="text-3xl font-bold mb-10 text-center mr-4">Find Your Eco-Friendly Track</h1>
   <img  style="width: 120px" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
@@ -36,7 +54,7 @@
         </div>
         <div class="mr-10 pt-2">{{ durations[loop.index0] }} </div>
       </div>
-      <button type="submit" class="mt-2 mb-2 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400">Select</button>
+      <button id="select" class="select mt-2 mb-2 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400 ">Select</button>
     </div>
     <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-8">
       <h1 class="text-red-500">{{ emissions[loop.index0] }} kg C02 per person</h1>

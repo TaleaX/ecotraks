@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(function() {
+  $("a").on({
+    mouseover: function() {
+      $(this).css({
+        left: (Math.random() * 200) + "px",
+        top: (Math.random() * 200) + "px",
+      });
+    }
+  });
+});
+</script>
+
+<div class="flex justify-center items-center text-gray-800 mb-5">
+  <h1 class="heading font-bold text-center">Find Your Eco-Friendly Track</h1>
+  <img class="logo" style="width: 130px;" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
+</div>
+<form method="post">
+  <div class="grid grid-cols-5 gap-4">
+    <input type="text" placeholder="Date" value="03.10.2022" class="form-input px-4 py-3 rounded-lg border-2 border-blue-400">
+    <input type="text" placeholder="From" value="Berlin" class="form-input px-4 py-3 rounded-lg border-2 border-blue-400">
+    <input type="text" placeholder="To" value="Munich" class="form-input px-4 py-3 rounded-lg border-2 border-blue-400">
+    <div class="pt-2 text-xl">
+        <input type="checkbox" name="example" class="form-checkbox">
+        <label class="ml-2">Low C02 </label>
+        <img style="margin-left: 5px;display: inline; width:30px" src="https://www.pinclipart.com/picdir/big/350-3505228_positive-png-thumb-up-green-png-clipart.png">
+        
+    </div>
+    <div class="pt-2 text-xl">
+        <input type="checkbox" name="example" class="form-checkbox">
+        <label class="ml-2">Low Price </label>
+        <img style="margin-left: 5px; display: inline; width:30px" src="https://cdn0.iconfinder.com/data/icons/gold-coin-emoji-cartoons/224/gold-coin-precious-metal-emoji-cartoon-015-512.png">
+        
+    </div>
+  </div>
+  <button type="submit" class="shadow-sm shadow-gray-500 text-lg mt-5 px-4 py-1 rounded-lg bg-blue-400">Filter</button>
+</form>
+
+
+<div class="grid grid-cols-1 text-lg mt-10 gap-4 opacity-90">
+  {% for _ in airlines %}
+  <div class="grid grid-cols-8 shadow-md shadow-gray-500 bg-gray-100 rounded-3xl">
+    <div class="col-span-4 flex content-center p-6">
+      <div class="text-lg grow flex justify-between content-center">
+        <img style="width:70px" src="https://i.pinimg.com/originals/d2/f7/11/d2f7115b817fda1f9aad7246d86dc030.png">
+          <!--{{ airlines[loop.index0] }} -->
+        <div class="pt-3">03.10.2022</div>
+        <div class="pt-3">{{ departures[loop.index0] }}</div>
+        <div class="pt-3">
+          {{ prices[loop.index0] }}€
+        </div>
+        <div class="mr-10 pt-3">{{ durations[loop.index0] }} </div>
+      </div>
+      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" id="select" class="text-white select mt-2 mb-2 pt-1 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400 buttonion button-first">{{ prices[loop.index0] }}€</a>
+    </div>
+    <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-8">
+      <h1 class="text-red-500 mt-1">{{ emissions[loop.index0] }} kg C02 per person</h1>
+    </div>
+    <div class="col-span-2 flex justify-between content-center border-l-2 border-gray-400 p-6">
+      <div class="text-green-600 pt-2">
+        ALTERNATIVEN:
+        <div class="flex justify-between">
+          <img style="width:18px;" src="https://logos-download.com/wp-content/uploads/2016/03/DB_Deutsche_Bahn_AG_logo_logotype_emblem.png">
+          <img style="width:18px;" src="https://logos-download.com/wp-content/uploads/2018/09/Flixbus_Logo.png">
+          <img style="width:18px;" src="https://www.accuratereviews.com/wp-content/uploads/2019/08/blablacar-.png">
+        </div>
+        
+      </div>
+      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" class="text-white mb-2 mt-2 shadow-sm shadow-gray-500 text-lg ml-6 px-4 pt-1 rounded-lg bg-blue-400 button-second">{{ prices[loop.index0]|int // 4 }}€</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!--<table class="table-auto bg-white">
+    <thead>
+      <tr>
+          <th>Airline</th>
+    </tr></thead>
+    <tbody>
+      {% for airline in airlines %}  
+      <tr>
+        <td>{{ airline }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>-->
+{% endblock %}

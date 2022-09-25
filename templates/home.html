@@ -14,65 +14,10 @@
   });
 });
 </script>
-<style>
-  html, body {
-      margin: 0;
-      height: 100%;
-      width: 100%;
-      max-height: 100%;
-      max-width: 100%;
-      background-image: url("https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80");
-      background-position: center;
-      background-size: cover;
-  }
-  .buttonion {
-    position: relative;
-  }
 
-.button-first {
-  background: linear-gradient(to right, #e55d87, #5fc3e4);
-  box-shadow: 0 2px 25px rgba(229, 93, 135, 0.5);
-}
-
-.button-first:active {
-  background: linear-gradient(
-    to right,
-    rgba(229, 93, 135, 0.9),
-    rgba(95, 195, 228, 0.9)
-  );
-}
-
-.button-second {
-  background: linear-gradient(to right, #1488cc, #2b32b2);
-  box-shadow: 0 2px 25px rgba(20, 137, 204, 0.5);
-}
-
-.button-second:active {
-  background: linear-gradient(
-    to right,
-    rgba(20, 136, 204, 0.9),
-    rgba(43, 50, 178, 0.9)
-  );
-}
-
-.button:focus {
-  outline: none;
-}
-
-particle {
-  left: 0;
-  top: 0;
-  pointer-events: none;
-  position: fixed;
-  opacity: 0;
-}
-.heading {
-  font-size: 50px;
-}
-</style>
-<div class="flex justify-center items-end text-gray-800">
-  <img  style="width: 170px; margin-right: 30px;" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
-  <h1 class="heading font-bold mb-10 text-center">Find Your Eco-Friendly Track</h1>
+<div class="flex items-center text-gray-800">
+  <h1 class="heading font-bold text-center">Find Your Eco-Friendly Track</h1>
+  <img class="logo" style="width: 130px; margin-left: 10%;" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
 </div>
 <form method="post">
   <div class="grid grid-cols-5 gap-4">
@@ -96,7 +41,7 @@ particle {
 </form>
 
 
-<div class="grid grid-cols-1 text-lg mt-10 gap-4">
+<div class="grid grid-cols-1 text-lg mt-10 gap-4 opacity-90">
   {% for _ in airlines %}
   <div class="grid grid-cols-8 shadow-md shadow-gray-500 bg-gray-100 rounded-3xl">
     <div class="col-span-4 flex content-center p-6">

@@ -5,9 +5,83 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
         <title>EcoTraks</title>
+        <style>
+            html, body {
+                margin: 0 !important;
+                height: 100%;
+                width: 100%;
+                max-height: 100%;
+                max-width: 100%;
+                background-image: url("https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80");
+                background-position: center;
+                background-size: cover;
+                padding: 0 !important;
+                position: relative;
+            }
+            .buttonion {
+              position: relative;
+            }
+          
+          .button-first {
+            background: linear-gradient(to right, #e55d87, #5fc3e4);
+            box-shadow: 0 2px 25px rgba(229, 93, 135, 0.5);
+          }
+          
+          .button-first:active {
+            background: linear-gradient(
+              to right,
+              rgba(229, 93, 135, 0.9),
+              rgba(95, 195, 228, 0.9)
+            );
+          }
+          
+          .button-second {
+            background: linear-gradient(to right, #1488cc, #2b32b2);
+            box-shadow: 0 2px 25px rgba(20, 137, 204, 0.5);
+          }
+          
+          .button-second:active {
+            background: linear-gradient(
+              to right,
+              rgba(20, 136, 204, 0.9),
+              rgba(43, 50, 178, 0.9)
+            );
+          }
+          
+          .button:focus {
+            outline: none;
+          }
+          
+          particle {
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            position: fixed;
+            opacity: 0;
+          }
+          .heading {
+            font-size: 50px;
+          }
+          .logo {
+            margin: 30px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 9px 4px #747DE8;
+            animation: glow 1.5s linear infinite alternate;
+          }
+          .wrap-bg {
+            position: absolute;
+            background-color: black;
+            height: 100vh;
+            width: 100%;
+            opacity: 0.1;
+            margin: 0;
+            padding: 0;
+          }
+          </style>
       </head>
     <body class="font-sans pt-8 pb-8">
-        <div class="wrap-bg flex justify-center">
+        <div class="wrap-bg"></div>
+        <div class="flex justify-center">
             <div>
                 {% block content %}
                 {% endblock %}

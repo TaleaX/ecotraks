@@ -21,13 +21,17 @@ if duration > 60:
     duration = duration / 60 #in stunden
 distance = route_1["distance"] / 1000 # in km
 
-#average co2 emission of a car: 19 kg / 100 km
+#average co2 emission of a car: 19 kg / 100 km bei Verbrauch von 7.4 l / 100 km
 numofpass = 1 #should be asked for
 emission = distance * 19 / 100 / numofpass # in kg
+costoffuel = 1.85 # euro per liter
+cost = distance * 7.4 / 100 * costoffuel
 
 distance = round(distance,2)
 duration = round(duration,2)
 emission = round(emission,2)
+cost = round(cost,2)
 print("berlin-münchen distanz in km: ", distance)
 print("berlin-münchen fahrzeit in h: ", duration)
 print("berlin-münchen emission in kg: ", emission)
+print("berlin-münchen kosten in euro: ", cost)

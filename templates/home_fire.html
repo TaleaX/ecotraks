@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+//   $(function() {
+//   $("button").on({
+//     mouseover: function() {
+//       $(this).css({
+//         left: (Math.random() * 200) + "px",
+//         top: (Math.random() * 200) + "px",
+//       });
+//     }
+//   });
+// });
+window.addEventListener('DOMContentLoaded', () =>{
+    const overlay = document.querySelector('#overlay')
+    const body = document.querySelector('#body')
+    const select = document.querySelector(".buttonion")
+    const closeBtn = document.querySelector('#close-modal')
+
+    const toggleModal = () => {
+        overlay.classList.toggle('hidden')
+        overlay.classList.toggle('flex')
+        // body.classList.toggle('overflow-hidden')
+        
+    }
+    const reload = () => {
+        window.location.reload();
+    }
+    select.addEventListener('click', toggleModal)
+    closeBtn.addEventListener('click', toggleModal)
+    // body.addEventListener('click', toggleModal)
+})
+
+</script>
+<style>
+  .buttonion {
+    position: relative;
+  }
+</style>
+<div class="flex justify-center items-end text-gray-800">
+  <h1 class="text-3xl font-bold mb-10 text-center mr-4">Find Your Eco-Friendly Track</h1>
+  <img  style="width: 120px" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
+</div>
+<form method="post">
+  <div class="grid grid-cols-5 gap-4">
+    <input type="text" placeholder="Airline" class="form-input px-4 py-3 rounded-lg border-2 border-blue-400">
+    <input type="text" placeholder="From" class="form-input px-4 py-3 rounded-lg border-2 border-blue-400">
+    <input type="text" placeholder="To" class="form-input px-4 py-3 rounded-lg border-2 border-blue-400">
+    <div class="pt-2 text-lg">
+        <input type="checkbox" name="example" class="form-checkbox">
+        <label>Toggle Box One</label>
+    </div>
+    <div class="pt-2 text-lg">
+        <input type="checkbox" name="example" class="form-checkbox">
+        <label>Toggle Box Two</label>
+    </div>
+  </div>
+  <button type="submit" class="shadow-sm shadow-gray-500 text-lg mt-5 px-4 py-1 rounded-lg bg-blue-400">Filter</button>
+</form>
+
+
+<div class="grid grid-cols-1 text-lg mt-10 gap-4">
+  {% for _ in airlines %}
+  <div class="grid grid-cols-8 shadow-md shadow-gray-500 bg-gray-100 rounded-3xl">
+    <div class="col-span-4 flex content-center p-6">
+      <div class="text-lg grow flex justify-between content-center">
+        <img style="width:70px" src="https://i.pinimg.com/originals/d2/f7/11/d2f7115b817fda1f9aad7246d86dc030.png">
+          <!--{{ airlines[loop.index0] }} -->
+        <div class="pt-2">{{ departures[loop.index0] }}</div>
+        <div class="pt-2">
+          {{ prices[loop.index0] }}€
+        </div>
+        <div class="mr-10 pt-2">{{ durations[loop.index0] }} </div>
+      </div>
+      <button id="select" class="select mt-2 mb-2 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400 buttonion">Select</button>
+    </div>
+    <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-8">
+      <h1 class="text-red-500">{{ emissions[loop.index0] }} kg C02 per person</h1>
+    </div>
+    <div class="col-span-2 flex justify-between border-l-2 border-gray-400 p-6">
+      <div class="text-green-600 pt-2">ALTERNATIVE </div>
+      <button type="submit" class="mb-2 mt-2 shadow-sm shadow-gray-500 text-lg ml-6 px-4 rounded-lg bg-blue-400"><a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml">Select</a></button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!--<table class="table-auto bg-white">
+    <thead>
+      <tr>
+          <th>Airline</th>
+    </tr></thead>
+    <tbody>
+      {% for airline in airlines %}  
+      <tr>
+        <td>{{ airline }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>-->
+{% endblock %}

@@ -26,16 +26,24 @@
 <div class="grid grid-cols-1 text-lg mt-10 gap-4">
   {% for _ in airlines %}
   <div class="grid grid-cols-8 shadow-md shadow-gray-500 bg-gray-100 rounded-3xl">
-    <div class="col-span-4 flex justify-between p-6">
-      <div>{{ airlines[loop.index0] }} {{ prices[loop.index0] }} {{ durations[loop.index0] }} {{ departures[loop.index0] }}</div>
-      <button type="submit" class="shadow-sm shadow-gray-500 text-lg ml-6 px-4 py-1 rounded-lg bg-blue-400">Select</button>
+    <div class="col-span-4 flex content-center p-6">
+      <div class="text-lg grow flex justify-between content-center border-2 border-gray-400">
+        <img class="border-2 border-gray-400" style="width:70px" src="https://i.pinimg.com/originals/d2/f7/11/d2f7115b817fda1f9aad7246d86dc030.png">
+          <!--{{ airlines[loop.index0] }} -->
+        <div class="pt-2">{{ departures[loop.index0] }}</div>
+        <div class="pt-2">
+          {{ prices[loop.index0] }}€
+        </div>
+        <div class="mr-10 pt-2">{{ durations[loop.index0] }} </div>
+      </div>
+      <button type="submit" class="mt-2 mb-2 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400">Select</button>
     </div>
-    <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-6">
+    <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-8">
       <h1 class="text-red-500">155kg C02 Verbrauch</h1>
     </div>
     <div class="col-span-2 flex justify-between border-l-2 border-gray-400 p-6">
-      <div class="text-green-600">ALTERNATIVE </div>
-      <button type="submit" class="shadow-sm shadow-gray-500 text-lg ml-6 px-4 py-1 rounded-lg bg-blue-400">Select</button>
+      <div class="text-green-600 pt-2">ALTERNATIVE </div>
+      <button type="submit" class="mb-2 mt-2 shadow-sm shadow-gray-500 text-lg ml-6 px-4 rounded-lg bg-blue-400">Select</button>
     </div>
   </div>
   {% endfor %}

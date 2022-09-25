@@ -89,20 +89,29 @@ particle {
       <div class="text-lg grow flex justify-between content-center">
         <img style="width:70px" src="https://i.pinimg.com/originals/d2/f7/11/d2f7115b817fda1f9aad7246d86dc030.png">
           <!--{{ airlines[loop.index0] }} -->
-        <div class="pt-2">{{ departures[loop.index0] }}</div>
-        <div class="pt-2">
+        <div class="pt-3">03.10.2022</div>
+        <div class="pt-3">{{ departures[loop.index0] }}</div>
+        <div class="pt-3">
           {{ prices[loop.index0] }}€
         </div>
-        <div class="mr-10 pt-2">{{ durations[loop.index0] }} </div>
+        <div class="mr-10 pt-3">{{ durations[loop.index0] }} </div>
       </div>
-      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" id="select" class="select mt-2 mb-2 pt-1 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400 buttonion button-first">Select</a>
+      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" id="select" class="text-white select mt-2 mb-2 pt-1 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400 buttonion button-first">{{ prices[loop.index0] }}€</a>
     </div>
     <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-8">
-      <h1 class="text-red-500">{{ emissions[loop.index0] }} kg C02 per person</h1>
+      <h1 class="text-red-500 mt-1">{{ emissions[loop.index0] }} kg C02 per person</h1>
     </div>
-    <div class="col-span-2 flex justify-between border-l-2 border-gray-400 p-6">
-      <div class="text-green-600 pt-2">ALTERNATIVE </div>
-      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" class="mb-2 mt-2 shadow-sm shadow-gray-500 text-lg ml-6 px-4 pt-1 rounded-lg bg-blue-400 button-second">Select</a>
+    <div class="col-span-2 flex justify-between content-center border-l-2 border-gray-400 p-6">
+      <div class="text-green-600 pt-2">
+        ALTERNATIVEN:
+        <div class="flex justify-between">
+          <img style="width:18px;" src="https://logos-download.com/wp-content/uploads/2016/03/DB_Deutsche_Bahn_AG_logo_logotype_emblem.png">
+          <img style="width:18px;" src="https://logos-download.com/wp-content/uploads/2018/09/Flixbus_Logo.png">
+          <img style="width:18px;" src="https://www.accuratereviews.com/wp-content/uploads/2019/08/blablacar-.png">
+        </div>
+        
+      </div>
+      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" class="text-white mb-2 mt-2 shadow-sm shadow-gray-500 text-lg ml-6 px-4 pt-1 rounded-lg bg-blue-400 button-second">{{ prices[loop.index0]|int // 4 }}€</a>
     </div>
   </div>
   {% endfor %}

@@ -23,3 +23,6 @@ Slash22 Berlin Project
 - implement direct co2 comparison with alternatives
 - scaling up to world wide
 - improve the filter
+
+![Initial Image](imgs/pic_start.png)
+![Second Image](imgs/pic_moved.png)

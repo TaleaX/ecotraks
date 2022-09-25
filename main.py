@@ -30,8 +30,6 @@ def home(request: Request, db: Session=Depends(get_db)):
     displays the stock screener dashboard
     """
     airlines = [a[0] for a in db.query(Flight.airline).all()]
-    #(airlines,) = db.query(Flight.airline).all()
-    # airline = db.query(Flight.airline).all()
     price = [p[0] for p in db.query(Flight.price).all()]
     departure = [d[0].replace(":00.000+02:00", "").split("T")[1] for d in db.query(Flight.departure).all()]
     duration = [d[0] for d in db.query(Flight.duration).all()]
@@ -39,8 +37,6 @@ def home(request: Request, db: Session=Depends(get_db)):
     return templates.TemplateResponse("home.html", {
         "request": request, "airlines": airlines, "prices": price, "departures": departure, "durations": duration, "emissions": emissions
     })
-
-# , "departures": departure, "durations": duration
 
 def fetch_flight_data(id: int):
     db = SessionLocal()

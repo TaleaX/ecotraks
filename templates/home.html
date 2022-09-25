@@ -4,7 +4,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   $(function() {
-  $("button").on({
+  $("a").on({
     mouseover: function() {
       $(this).css({
         left: (Math.random() * 200) + "px",
@@ -18,10 +18,51 @@
   .buttonion {
     position: relative;
   }
+
+.button-first {
+  background: linear-gradient(to right, #e55d87, #5fc3e4);
+  box-shadow: 0 2px 25px rgba(229, 93, 135, 0.5);
+}
+
+.button-first:active {
+  background: linear-gradient(
+    to right,
+    rgba(229, 93, 135, 0.9),
+    rgba(95, 195, 228, 0.9)
+  );
+}
+
+.button-second {
+  background: linear-gradient(to right, #1488cc, #2b32b2);
+  box-shadow: 0 2px 25px rgba(20, 137, 204, 0.5);
+}
+
+.button-second:active {
+  background: linear-gradient(
+    to right,
+    rgba(20, 136, 204, 0.9),
+    rgba(43, 50, 178, 0.9)
+  );
+}
+
+.button:focus {
+  outline: none;
+}
+
+particle {
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  position: fixed;
+  opacity: 0;
+}
+.heading {
+  font-size: 50px;
+}
 </style>
 <div class="flex justify-center items-end text-gray-800">
-  <h1 class="text-3xl font-bold mb-10 text-center mr-4">Find Your Eco-Friendly Track</h1>
-  <img  style="width: 120px" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
+  <h1 class="heading font-bold mb-10 text-center mr-4">Find Your Eco-Friendly Track</h1>
+  <img style="width: 150px" src="https://images.vexels.com/media/users/3/194324/isolated/preview/46dfd06f9ee4c53a5f3d50c6a39f95f1-eco-friendly-lettering-by-vexels.png">
 </div>
 <form method="post">
   <div class="grid grid-cols-5 gap-4">
@@ -54,14 +95,14 @@
         </div>
         <div class="mr-10 pt-2">{{ durations[loop.index0] }} </div>
       </div>
-      <button id="select" class="select mt-2 mb-2 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400 ">Select</button>
+      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" id="select" class="select mt-2 mb-2 pt-1 shadow-sm shadow-gray-500 text-lg px-4 rounded-lg bg-blue-400 buttonion button-first">Select</a>
     </div>
     <div class="col-span-2 flex justify-center border-l-2 border-gray-400 p-8">
       <h1 class="text-red-500">{{ emissions[loop.index0] }} kg C02 per person</h1>
     </div>
     <div class="col-span-2 flex justify-between border-l-2 border-gray-400 p-6">
       <div class="text-green-600 pt-2">ALTERNATIVE </div>
-      <button type="submit" class="mb-2 mt-2 shadow-sm shadow-gray-500 text-lg ml-6 px-4 rounded-lg bg-blue-400"><a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml">Select</a></button>
+      <a href="https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml" class="mb-2 mt-2 shadow-sm shadow-gray-500 text-lg ml-6 px-4 pt-1 rounded-lg bg-blue-400 button-second">Select</a>
     </div>
   </div>
   {% endfor %}
